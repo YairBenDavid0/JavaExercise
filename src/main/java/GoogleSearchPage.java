@@ -57,20 +57,4 @@ public class GoogleSearchPage {
         String lastLink = mainSearchResults.get(mainSearchResults.size() - 1).getAttribute("href");
         Assert.assertFalse(lastLink.contains("interview"));
     }
-
-    public String getFirstSearchResultLinkText() {
-        wait.until(ExpectedConditions.visibilityOf(mainSearchResults.get(0)));
-        WebElement firstLink = mainSearchResults.get(0);
-        return firstLink.getAttribute("innerHTML");
-    }
-
-    public boolean isFirstSearchResultContaining(String text) {
-        WebElement firstLink = mainSearchResults.get(0);
-        return firstLink.getText().contains(text);
-    }
-
-    public boolean isLastSearchResultContaining(String text) {
-        WebElement lastLink = mainSearchResults.get(3);
-        return !lastLink.getText().contains(text);
-    }
 }
